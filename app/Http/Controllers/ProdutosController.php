@@ -7,7 +7,7 @@ use App\Models\produto;
 class ProdutosController extends Controller
 {
     public function index(){
-        $produtos = produto::paginate();
+        $produtos = produto::orderby('nome','asc')->paginate();
         return view('produtos.index', ['produtos' => $produtos]);
     }
 
@@ -15,17 +15,35 @@ class ProdutosController extends Controller
         return view('produtos.create');
     }
 
+    public function insert(Request $request){
+        $produto = new Produto();
+        $produto->nome = $request->nome;
+        $produto->valor = $request->valor;
+        $produto->descricao = $request->descricao;
+        $produto->save();
+        return redirect()->route('produtos');
+//        return $request;
+    }
+
     public function show($id){
-        return view('produtos.show', ['id' => $id]);
+        $produto = Produto::find($id);
+        return view('produtos.show', ['produto' => $produto]);
     }
-        /*
-        return view('produtos.show', ['nome' => $nome, 'valor' => $valor]);    
-        if ($valor){
-            return "O nome do produto é $nome, e o valor é $valor.";
-        }
-        else{
-            return "O nome do produto é $nome.";
-        }
+
+    public function edit(Produto $produto){
+//        $produto = Produto::find($id);
+        return view('produtos.edit', ['produto' => $produto]);
     }
-    */
+
+    public function editar(Request $request, Produto $produto){
+        $produto->nome = $request->nome;
+        $produto->valor = $request->valor;
+        $produto->descricao = $request->descricao;
+        $produto->save();
+        return redirect()->route('produtos');
     }
+
+    public function delete(Produto $produto){
+        return "teste";
+    }
+}

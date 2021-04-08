@@ -26,7 +26,9 @@
                                 <td>{{$produto->nome}}</td>
                                 <td>{{$produto->valor}}</td>
                                 <td>
-                                    <a href="{{route('produtos.descricao', $produto->id)}}"><i class="fas fa-eye text-primary"></i>
+                                    <a title="Detalhes do produto" href="{{route('produtos.descricao', $produto->id)}}" class="fas fa-eye"></a>
+                                    <a title="Editar produto" href="{{route('produtos.edit', $produto)}}" class="fas fa-edit text-info mr-1"></a>
+                                    <a title="Excluir produto" href="{{route('produtos.delete', $produto)}}" class="fas fa-trash"></a>
                                 </td>
                                 </a>
                             </tr>
