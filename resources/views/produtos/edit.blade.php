@@ -1,5 +1,5 @@
 @extends('layouts.template')
-@section('title', 'Criar Produto')
+@section('title', 'Editar Produto')
 @section('content')
 <div class="container mt-4">
     <h1>Edição de produto</h1>
