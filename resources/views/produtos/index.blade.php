@@ -1,7 +1,11 @@
 @extends('layouts.template')
 @section('title', 'Produtos')
 @section('content')
+
 <?php $delete="" ?>
+<?php
+@session_start();
+?>
 <div class='container'>
     <a href="{{route('produtos.inserir')}}" type="button" class="mt-4 mb-4 btn btn-primary">Inserir Produto</a>
 

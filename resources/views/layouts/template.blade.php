@@ -14,7 +14,7 @@
 
   </head>
   <body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <nav class="navbar navbar-expand-sm navbar-light bg-light">
       <div class="container-fluid">
         <a class="navbar-brand" href="./">Navbar</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -33,8 +33,14 @@
             </li>
           </ul>
           <form class="d-flex">
-            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-            <button class="btn btn-outline-success" type="submit">Search</button>
+            <?php 
+              @session_start();
+              if(@$_SESSION != null){
+            ?>
+              <a href="{{route('usuarios.logout')}}" class="btn btn-outline-success" type="submit">Sair</a>
+            <?php } else{ ?>
+              <a href="{{route('home')}}" class="btn btn-outline-success" type="submit">Entrar</a>
+            <?php } ?>
           </form>
         </div>
       </div>

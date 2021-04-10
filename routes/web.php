@@ -3,7 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProdutosController;
-
+use App\Http\Controllers\UsuariosController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -15,12 +15,11 @@ use App\Http\Controllers\ProdutosController;
 |
 */
 
-Route::get('/', HomeController::class );
+Route::get('/', HomeController::class )->name('home');
 
 Route::get('produtos/inserir', [ProdutosController::class, 'create'])->name('produtos.inserir');
 
 Route::get('produtos/{id}', [ProdutosController::class, 'show'])->name('produtos.descricao');
-//Route::get('produtos/{nome}/{valor?}', [ProdutosController::class, 'show'])->name('produtos.descricao');
 
 Route::get('produtos', [ProdutosController::class, 'index'])->name('produtos');
 
@@ -33,3 +32,7 @@ Route::put('produtos/{produto}', [ProdutosController::class, 'editar'])->name('p
 Route::delete('produtos/{produto}', [ProdutosController::class, 'delete'])->name('produtos.delete');
 
 Route::get('produtos/{produto}/delete', [ProdutosController::class, 'modal_delete'])->name('produtos.modal_delete');
+
+Route::get('usuarios/', [UsuariosController::class, 'login'])->name('usuarios.login');
+
+Route::get('usuarios/logout', [UsuariosController::class, 'logout'])->name('usuarios.logout');
