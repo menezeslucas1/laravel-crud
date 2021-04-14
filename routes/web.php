@@ -29,7 +29,7 @@ Route::get('produtos/{produto}/edit', [ProdutosController::class, 'edit'])->name
 
 Route::put('produtos/{produto}', [ProdutosController::class, 'editar'])->name('produtos.editar');
 
-Route::delete('produtos/{produto}', [ProdutosController::class, 'delete'])->name('produtos.delete');
+Route::delete('produtos/{produto}/delete', [ProdutosController::class, 'delete'])->name('produtos.delete');
 
 Route::get('produtos/{produto}/delete', [ProdutosController::class, 'modal_delete'])->name('produtos.modal_delete');
 

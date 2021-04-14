@@ -7,7 +7,7 @@ use App\Models\produto;
 class ProdutosController extends Controller
 {
     public function index(){
-        $produtos = Produto::orderby('nome','asc')->get();
+        $produtos = Produto::orderby('nome','asc')->paginate();
         return view('produtos.index', ['produtos' => $produtos]);
     }
 
@@ -44,12 +44,14 @@ class ProdutosController extends Controller
     }
 
     public function delete(Produto $produto){
+//        return "teste de exclusão";
         $produto->delete();
         return redirect()->route('produtos');
     }
 
     public function modal_delete(Produto $produto){
-        $produtos = produto::orderby('nome','asc')->get();
-        return view('produtos.index', ['produtos' => $produtos, 'delete' => $produto]);
+//        $produtos = produto::orderby('nome','asc')->paginate();
+        return view('produtos.delete', ['produto' => $produto]);
+//        return view('produtos.index', ['produtos' => $produtos, 'delete' => $produto]);
     }
 }
