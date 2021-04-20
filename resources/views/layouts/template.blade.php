@@ -16,7 +16,7 @@
   <body>
     <nav class="navbar navbar-expand-sm navbar-light bg-light">
       <div class="container-fluid">
-        <a class="navbar-brand" href="{{route('produtos')}}">Produtos</a>
+        <a class="navbar-brand" href="{{route('products')}}">Produtos</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -24,6 +24,7 @@
           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
             @yield('bar')
           </ul>
+          <button class="btn btn-outline-success" type="submit"><i class="fas fa-sign-out-alt"></i>Sair</button>
         </div>
       </div>
     </nav>

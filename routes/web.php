@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
-use App\Http\Controllers\ProdutosController;
+use App\Http\Controllers\ProductsController;
 use App\Http\Controllers\UsuariosController;
 /*
 |--------------------------------------------------------------------------
@@ -17,21 +17,21 @@ use App\Http\Controllers\UsuariosController;
 
 Route::get('/', HomeController::class )->name('home');
 
-Route::get('produtos/inserir', [ProdutosController::class, 'create'])->name('produtos.inserir');
+Route::get('produtos/inserir', [ProductsController::class, 'create'])->name('products.new');
 
-Route::get('produtos/{id}', [ProdutosController::class, 'show'])->name('produtos.descricao');
+Route::get('produtos/{id}', [ProductsController::class, 'show'])->name('products.show');
 
-Route::get('produtos', [ProdutosController::class, 'index'])->name('produtos');
+Route::get('produtos', [ProductsController::class, 'index'])->name('products');
 
-Route::post('produtos', [ProdutosController::class, 'insert'])->name('produtos.insert');
+Route::post('produtos', [ProductsController::class, 'insert'])->name('products.insert');
 
-Route::get('produtos/{produto}/edit', [ProdutosController::class, 'edit'])->name('produtos.edit');
+Route::get('produtos/{product}/edit', [ProductsController::class, 'edit'])->name('products.edit');
 
-Route::put('produtos/{produto}', [ProdutosController::class, 'editar'])->name('produtos.editar');
+Route::put('produtos/{product}', [ProductsController::class, 'update'])->name('products.update');
 
-Route::delete('produtos/{produto}/delete', [ProdutosController::class, 'delete'])->name('produtos.delete');
+Route::delete('produtos/{product}/delete', [ProductsController::class, 'delete'])->name('products.delete');
 
-Route::get('produtos/{produto}/delete', [ProdutosController::class, 'modal_delete'])->name('produtos.modal_delete');
+Route::get('produtos/{product}/delete', [ProductsController::class, 'confirmDelete'])->name('products.confirmDelete');
 
 Route::get('usuarios/', [UsuariosController::class, 'login'])->name('usuarios.login');
 
