@@ -7,13 +7,14 @@
 ?>
 @section('bar')
 <li class="nav-item">
-    <a class="nav-link active" aria-current="page" href="{{route('products.new')}}"><i class="fas fa-plus"></i> Novo</a>
+    <a class="nav-link active" aria-current="page" href="{{route('products.get.new')}}"><i class="fas fa-plus"></i> Novo</a>
 </li>
 @endsection
 
 <div class='container'>
     <div class="card shadow mb-4">
         <div class="card-body">
+            {{$products->links()}}
             <div class="table-responsive">
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                     <thead>
@@ -28,12 +29,12 @@
                         @foreach($products as $product)
                             <tr>
                                 <td>{{$product->id}}</td>
-                                <td>{{$product->nome}}</td>
-                                <td>{{$product->valor}}</td>
+                                <td>{{$product->name}}</td>
+                                <td>{{$product->price}}</td>
                                 <td>
-                                    <a title="Detalhes do product" href="{{route('products.show', $product->id)}}"><i class="fas fa-eye mr-1"></i></a>
-                                    <a title="Editar product" href="{{route('products.edit', $product)}}"><i class="fas fa-edit text-info mr-1"></i></a>
-                                    <a title="Excluir product {{$product->id}}" href="{{route('products.confirmDelete', $product)}}"><i class="fas fa-trash text-danger"></i></a>
+                                    <a title="Detalhes do product" href="{{route('products.get.view', $product->id)}}"><i class="fas fa-eye mr-1"></i></a>
+                                    <a title="Editar product" href="{{route('products.get.edit', $product)}}"><i class="fas fa-edit text-info mr-1"></i></a>
+                                    <a title="Excluir product {{$product->id}}" href="{{route('products.get.delete', $product)}}"><i class="fas fa-trash text-danger"></i></a>
                                 </td>
                             </tr>
                         @endforeach

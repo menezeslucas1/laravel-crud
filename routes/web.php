@@ -17,21 +17,21 @@ use App\Http\Controllers\UsuariosController;
 
 Route::get('/', HomeController::class )->name('home');
 
-Route::get('produtos/inserir', [ProductsController::class, 'create'])->name('products.new');
+Route::get('products', [ProductsController::class, 'index'])->name('products');
 
-Route::get('produtos/{id}', [ProductsController::class, 'show'])->name('products.show');
+Route::get('products/new', [ProductsController::class, 'getNew'])->name('products.get.new');
 
-Route::get('produtos', [ProductsController::class, 'index'])->name('products');
+Route::post('products', [ProductsController::class, 'postNew'])->name('products.post.new');
 
-Route::post('produtos', [ProductsController::class, 'insert'])->name('products.insert');
+Route::get('products/{id}', [ProductsController::class, 'view'])->name('products.get.view');
 
-Route::get('produtos/{product}/edit', [ProductsController::class, 'edit'])->name('products.edit');
+Route::get('products/{product}/edit', [ProductsController::class, 'getEdit'])->name('products.get.edit');
 
-Route::put('produtos/{product}', [ProductsController::class, 'update'])->name('products.update');
+Route::put('products/{product}', [ProductsController::class, 'putEdit'])->name('products.put.edit');
 
-Route::delete('produtos/{product}/delete', [ProductsController::class, 'delete'])->name('products.delete');
+Route::get('products/{product}/delete', [ProductsController::class, 'getDelete'])->name('products.get.delete');
 
-Route::get('produtos/{product}/delete', [ProductsController::class, 'confirmDelete'])->name('products.confirmDelete');
+Route::delete('products/{product}/delete', [ProductsController::class, 'postDelete'])->name('products.post.delete');
 
 Route::get('usuarios/', [UsuariosController::class, 'login'])->name('usuarios.login');
 
