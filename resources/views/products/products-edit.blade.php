@@ -25,7 +25,7 @@
             <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="description">{{$product->description}}</textarea>
         </div>
        <button type="submit" class="btn btn-primary">Enviar</button>
-       <a href="{{route('products')}}" class="btn btn-secondary"><i class="fas fa-arrow-left mr-1"></i>cancelar</a>
+       <a href="{{route('products.get.index')}}" class="btn btn-secondary"><i class="fas fa-arrow-left mr-1"></i>cancelar</a>
     </form>
 </div>
 @endsection

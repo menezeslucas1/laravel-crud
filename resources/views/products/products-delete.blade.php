@@ -14,8 +14,8 @@
             </div>
             <div class="modal-footer">
                 <a class="btn btn-primary" href="{{route('products.get.view', $product->id)}}" role="button"><i class="fas fa-eye mr-1"></i>Ver</a>
-                <a href="{{route('products')}}" type="button" class="btn btn-secondary"><i class="fas fa-arrow-left mr-1"></i>Cancelar</a>
-                <form method="POST" action="{{route('products.post.delete', $product)}}">
+                <a href="{{route('products.get.index')}}" type="button" class="btn btn-secondary"><i class="fas fa-arrow-left mr-1"></i>Cancelar</a>
+                <form method="POST" action="{{route('products.delete.delete', $product)}}">
                     @csrf
                     @method('delete')
                     <button type="submit" class="btn btn-danger"><i class="fas fa-trash text-white"></i>Excluir</button>

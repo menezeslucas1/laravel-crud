@@ -17,22 +17,18 @@ use App\Http\Controllers\UsuariosController;
 
 Route::get('/', HomeController::class )->name('home');
 
-Route::get('products', [ProductsController::class, 'index'])->name('products');
+Route::get('products/index', [ProductsController::class, 'index'])->name('products.get.index');
 
 Route::get('products/new', [ProductsController::class, 'getNew'])->name('products.get.new');
 
-Route::post('products', [ProductsController::class, 'postNew'])->name('products.post.new');
+Route::post('products/new', [ProductsController::class, 'postNew'])->name('products.post.new');
 
 Route::get('products/{id}', [ProductsController::class, 'view'])->name('products.get.view');
 
 Route::get('products/{product}/edit', [ProductsController::class, 'getEdit'])->name('products.get.edit');
 
-Route::put('products/{product}', [ProductsController::class, 'putEdit'])->name('products.put.edit');
+Route::put('products/{product}/edit', [ProductsController::class, 'putEdit'])->name('products.put.edit');
 
 Route::get('products/{product}/delete', [ProductsController::class, 'getDelete'])->name('products.get.delete');
 
-Route::delete('products/{product}/delete', [ProductsController::class, 'postDelete'])->name('products.post.delete');
-
-Route::get('usuarios/', [UsuariosController::class, 'login'])->name('usuarios.login');
-
-Route::get('usuarios/logout', [UsuariosController::class, 'logout'])->name('usuarios.logout');
+Route::delete('products/{product}/delete', [ProductsController::class, 'deleteDelete'])->name('products.delete.delete');

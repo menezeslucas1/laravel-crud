@@ -7,6 +7,6 @@ use Illuminate\Http\Request;
 class HomeController extends Controller
 {
     public function __invoke(){
-        return redirect()->route('products');
+        return redirect()->route('products.get.index');
     }
 }

@@ -15,7 +15,7 @@
     <div class="card shadow mb-4">
         <div class="card-body">
             {{$products->links()}}
-            <div class="table-responsive">
+            <div class="table-responsive mt-2">
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                     <thead>
                         <tr>
