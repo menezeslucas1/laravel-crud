@@ -14,7 +14,10 @@
 <div class='container'>
     <div class="card shadow mb-4">
         <div class="card-body">
-            {{$products->links()}}
+            <?php
+                $paginator = $products;
+            ?>
+            @include("layouts.pagination")
             <div class="table-responsive mt-2">
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                     <thead>
@@ -30,7 +33,7 @@
                             <tr>
                                 <td>{{$product->id}}</td>
                                 <td>{{$product->name}}</td>
-                                <td>{{$product->price}}</td>
+                                <td>R${{number_format($product->price, 2, ',', '.')}}</td>
                                 <td>
                                     <a title="Detalhes do product" href="{{route('products.get.view', $product->id)}}"><i class="fas fa-eye mr-1"></i></a>
                                     <a title="Editar product" href="{{route('products.get.edit', $product)}}"><i class="fas fa-edit text-info mr-1"></i></a>
@@ -41,7 +44,7 @@
                     </tbody>
                 </table>
             </div>
-            {{$products->links()}}
+            @include('layouts.pagination')
         </div>
     </div>
 <div>

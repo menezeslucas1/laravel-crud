@@ -17,6 +17,8 @@ use App\Http\Controllers\UsuariosController;
 
 Route::get('/', HomeController::class )->name('home');
 
+Route::get('products/', function(){ return redirect()->route('products.get.index');});
+
 Route::get('products/index', [ProductsController::class, 'index'])->name('products.get.index');
 
 Route::get('products/new', [ProductsController::class, 'getNew'])->name('products.get.new');

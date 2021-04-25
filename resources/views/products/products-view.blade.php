@@ -10,7 +10,7 @@
             </div>
             <div class="modal-body">
                 <p>{{$product->description}}.</p>
-                <p>R$<?php echo $price?>.</p>
+                <p>R${{$price}}.</p>
             </div>
             <div class="modal-footer">
                 <a class="btn btn-primary btn-sm" href="{{route('products.get.index')}}" role="button"><i class="fas fa-arrow-left mr-1"></i>Todos</a>

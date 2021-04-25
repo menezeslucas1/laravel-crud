@@ -17,8 +17,8 @@ class ProductsController extends Controller
      * Show a list of all products, ordered by the name.
      * Products are seperated by pages.
      */
-    public function index(){
-        $products = Product::orderby('name','asc')->paginate();
+    public function index(Request $request){
+        $products = Product::orderby('name','asc')->paginate(10);
         return view('products.products-index', ['products' => $products]);
     }
 

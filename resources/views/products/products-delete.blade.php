@@ -10,7 +10,7 @@
             </div>
             <div class="modal-body">
                 <p>{{$product->name}}.</p>
-                <p>R$<?php echo $price?>.</p>
+                <p>R${{$price}}.</p>
             </div>
             <div class="modal-footer">
                 <a class="btn btn-primary" href="{{route('products.get.view', $product->id)}}" role="button"><i class="fas fa-eye mr-1"></i>Ver</a>
