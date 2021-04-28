@@ -9,19 +9,31 @@
         <div class="row">
             <div class="col-md-6">
                 <div class="mb-3">
-                    <label for="exampleInputEmail1">Nome</label>
-                    <input class="form-control" id="" name="name" value="{{$product->name}}">
+                    <label>
+                        Nome
+                        <i class="text-danger">{{$errors->first('name')}}</i>
+                    </label>
+                    <input class="form-control" name="name" value="{{$product->name}}">
                 </div>
             </div>
             <div class="col-md-6">
                 <div class="mb-3">
-                    <label for="exampleInputEmail1">Valor</label>
-                    <input class="form-control" id="" name="price" value="{{$product->price}}">
+                    <label">
+                        Preço
+                        <i class="text-danger">{{$errors->first('price')}}</i>
+                    </label>
+                    <div class="input-group">
+                        <span class="input-group-text">R$</span>
+                        <input class="form-control" name="price" value="{{$product->price}}">
+                    </div>
                 </div>
             </div>
         </div>
         <div class="mb-3">
-            <label for="exampleFormControlTextarea1">Descrição</label>
+            <label for="exampleFormControlTextarea1">
+                Descrição
+                <i class="text-danger">{{$errors->first('description')}}</i>
+            </label>
             <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="description">{{$product->description}}</textarea>
         </div>
        <button type="submit" class="btn btn-primary">Enviar</button>

@@ -24,7 +24,7 @@
                         <tr>
                             <th>ID</th>
                             <th>Nome</th>
-                            <th>Valor</th>
+                            <th>Preço</th>
                             <th>Ações</th>
                         </tr>
                     </thead>

@@ -17,11 +17,10 @@
     <nav class="navbar navbar-light bg-light">
       <div class="container d-flex justify-content-start">
         <a class="navbar-brand" href="{{route('products.get.index')}}">Produtos</a>
-        <div class="" id="navbarSupportedContent">
-          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <div class="d-flex flex-row flex-fill" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0 d-flex flex-row">
             @yield('bar')
           </ul>
-<!--          <button class="btn btn-outline-success" type="submit"><i class="fas fa-sign-out-alt"></i>Sair</button> -->
         </div>
       </div>
     </nav>

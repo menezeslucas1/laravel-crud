@@ -33,9 +33,15 @@ class ProductsController extends Controller
      * Add the new product to the database.
      * Redirect to the index page.
      * 
-     * @param Request $request the new product's attributes
+     * @param Illuminate\Http\Request $request the new product's attributes
      */
     public function postNew(Request $request){
+        $validated = $request->validate([
+            'name' => Product::VALIDATION_RULES['name'],
+            'price' => Product::VALIDATION_RULES['price'],
+            'description' => Product::VALIDATION_RULES['description'],
+        ]);
+//        return $validated;
         $product = new Product();
         $product->name = $request->name;
         $product->price = $request->price;
@@ -57,7 +63,7 @@ class ProductsController extends Controller
     /**
      * Show the form to edit a selected product
      * 
-     * @param Product $product the selected product to edit
+     * @param App\Models\Product $product the selected product to edit
      */
     public function getEdit(Product $product){
         return view('products.products-edit', ['product' => $product]);
@@ -67,10 +73,15 @@ class ProductsController extends Controller
      * Edit the selecteed product in the database.
      * Redirect to the index page.
      * 
-     * @param Request $request the product's new data
-     * @param Product $product the product to be modified
+     * @param Illuminate\Http\Request $request the product's new data
+     * @param App\Models\Product $product the product to be modified
      */
     public function putEdit(Request $request, Product $product){
+        $validated = $request->validate([
+            'name' => Product::VALIDATION_RULES['name'],
+            'price' => Product::VALIDATION_RULES['price'],
+            'description' => Product::VALIDATION_RULES['description'],
+        ]);
         $product->name = $request->name;
         $product->price = $request->price;
         $product->description = $request->description;
@@ -81,7 +92,7 @@ class ProductsController extends Controller
     /**
      * Ask a comfirmation to delete a product
      * 
-     * @param Product $product the product to delete
+     * @param App\Models\Product $product the product to delete
      */
     public function getDelete(Product $product){
         return view('products.products-delete', ['product' => $product]);
@@ -91,8 +102,8 @@ class ProductsController extends Controller
      * Remove a product from the database.
      * Redirect to the index page.
      * 
-     * @param Request $request metadata about the request
-     * @param Product $product product to be removed from database
+     * @param Illuminate\Http\Request $request metadata about the request
+     * @param App\Models\Product $product product to be removed from database
      */
     public function deleteDelete(Request $request, Product $product){
         $product->delete();
